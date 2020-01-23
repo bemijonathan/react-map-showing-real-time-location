@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useState, useEffect } from 'react'
+import { Add, Sub } from './actions'
+import { useSelector, useDispatch } from 'react-redux'
+import Learn from './Learn'
+import ChatCOmponent from './socket'
 
-function App() {
+const Home = () => {
+
+  // React Hooks setState explanation 
+
+  const [state, setMovies] = useState([{
+    name: 'thor'
+  }])
+
+  const increment = () => {
+    setMovies(p => p.concat({ name: 'jona' }))
+  }
+  let count = useSelector(state => {
+    return state.count
+  })
+  useEffect(() => {
+    console.log('effect')
+  }, [count])
+
+  const dispatch = useDispatch()
+  let addCount = () => dispatch(Add())
+  let subCount = () => dispatch(Sub())
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="container">
+        {/* <div>
+          count: {count}
+        </div>
+        <button onClick={() => increment()}> + </button>
+        <button onClick={() => subCount()}> - </button>
+        <Learn count={count} /> */}
+        <ChatCOmponent></ChatCOmponent>
+      </div>
+    </>
+  )
 }
 
-export default App;
+
+export default Home
