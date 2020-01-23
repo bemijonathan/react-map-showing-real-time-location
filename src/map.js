@@ -18,7 +18,7 @@ export default function MapComponent(props) {
                         return (
                             <Overlay anchor={e.location} offset={[0, 0]} key={i}>
                                 <img
-                                    src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png"
+                                    src="/marker.png"
                                     width={35}
                                     height={24}
                                     alt=""
@@ -28,7 +28,7 @@ export default function MapComponent(props) {
                     }) : ''
                 }
             </Map>
-            <button> Get my Location and get linkS </button>
+            {/* <button> Get my Location and get linkS </button> */}
         </>
     );
 }

@@ -15,10 +15,12 @@ class ChatCOmponent extends React.Component {
 
     componentDidMount() {
 
+        alert('all you have to do is create your secrete key and share it to a friend and please always allow location access')
+
         console.log(this.socket)
 
         this.socket.on('newuseradded', (data) => {
-            console.log(data, 'new user added')
+            alert(data.message)
         })
 
         this.socket.on('locationUpdated', (data) => {
@@ -73,7 +75,7 @@ class ChatCOmponent extends React.Component {
                         console.log(this.state, 'i dont even know')
                         this.socket.emit('createlink', { ...this.state }, (response) => {
                         this.setState({ ...this.state, users: response.users })
-                        console.log(response)
+                        alert(response.message)
                     })
                 })
                 
