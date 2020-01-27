@@ -11,7 +11,7 @@ class ChatCOmponent extends React.Component {
         users: []
     }
 
-    socket = io('localhost:8800')
+    socket = io('https://map-back.herokuapp.com/')
 
     componentDidMount() {
 
